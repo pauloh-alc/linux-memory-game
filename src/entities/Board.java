@@ -18,21 +18,33 @@ public class Board {
 	
 	private void startBoard(int rows, int columns) {
 		
+		String path = "/tmp/teste.txt";
+		FileResource resource = new FileResource(path);
+		
 		this.cards = new Card[rows][columns];
 		List<Point> pointsList = new ArrayList<Point>();
-		int pairs = (rows * columns) / 2;
-		int i = pairs, j = 0;
+		String[] roundCardList = getListOfPairs(resource.getLines(), rows, columns);
 		
-		for (int row = 0; row < rows; row++) {
-			for (int column = 0; column < columns; column++) {
+		int pairs = (rows * columns) / 2;
+		int i = pairs, j = 0, count1 = 0, count2 = 0;
+		
+		for (int r = 0; r < rows; r++) {
+			for (int c = 0; c < columns; c++) {
 				
-				if (column % 2 == 0) { 
-					this.cards[row][column] = new Card(i, choosePosition(pointsList, rows, columns), "");										
+				Point point = choosePosition(pointsList, rows, columns);
+				int row = point.getX(); int column = point.getY();
+				
+				if (c % 2 == 0) { 
+					String slice1 = roundCardList[count1].split("-")[0]; count1++;
+					this.cards[row][column] = new Card(i, point, slice1);										
 					i--;
 				} else { 
-					this.cards[row][column] = new Card(j, choosePosition(pointsList, rows, columns), "");
+					String slice2 = roundCardList[count2].split("-")[1]; count2++;
+					this.cards[row][column] = new Card(j, point, slice2);
 					j++;
 				}
+				
+				System.out.print(cards[row][column].getText() + "-");
 				System.out.print("("+cards[row][column].getPoint().getX()+","+cards[row][column].getPoint().getY()+") ");
 			}
 			System.out.println();
@@ -69,5 +81,36 @@ public class Board {
 			}
 		}
 		return false;
+	}
+	
+	private boolean contains(String[] list, int limit, String line) {
+		for (int i = 0; i < limit; i++) {
+			if (list[i].equals(line)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private String[] getListOfPairs (List<String> list, int rows, int columns) {
+		
+		int numberOfPairs = (rows * columns) / 2;
+		Random random = new Random();
+		String[] chosenElements = new String[numberOfPairs];
+		boolean exist;
+	
+		for (int i = 0; i < numberOfPairs; i++) {
+			int value;
+			exist = true;
+			do {
+				value = random.nextInt(list.size());
+				if ( ! contains(chosenElements, i, list.get(value))) {
+					chosenElements[i] = list.get(value);
+					exist = false;
+				}
+			} while (exist);
+		}
+		
+		return chosenElements;
 	}
 }

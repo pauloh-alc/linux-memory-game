@@ -23,9 +23,10 @@ public class FileResource {
 		
 		try (BufferedReader bf = new BufferedReader(new FileReader(PATH))) {
 			String line = bf.readLine();
+			list.add(line);
 			while (line != null) {
 				line = bf.readLine();
-				list.add(line);
+				if (line != null) list.add(line);
 			}
 		}
 		catch (IOException e) {
