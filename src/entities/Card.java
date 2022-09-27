@@ -1,6 +1,8 @@
 package entities;
 
 import entities.enums.State;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Card {
 	
@@ -58,4 +60,16 @@ public class Card {
 		this.type = type;
 	}
 	
+	public static ImageView generateImage() {
+		
+		String path = "./images/pinguin-linux.png";
+		
+		Image image = new Image(path);
+		ImageView imageView = new ImageView(image);
+		
+		imageView.setPreserveRatio(true);
+		imageView.setFitHeight(80);
+		
+		return imageView;
+	}
 }
