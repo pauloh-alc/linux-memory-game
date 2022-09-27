@@ -1,19 +1,21 @@
 package entities;
 
+import entities.enums.State;
+
 public class Card {
 	
 	private int number;
 	private Point point;
 	private String text;
+	private State state;
+	private char type;
 	
-	public Card() {
-		
-	}
-
-	public Card(int number, Point point, String text) {
+	public Card(int number, Point point, String text, State state, char type) {
 		this.number = number;
 		this.point = point;
 		this.text = text;
+		this.state = state;
+		this.type = type;
 	}
 
 	public int getNumber() {
@@ -38,6 +40,22 @@ public class Card {
 
 	public void setText(String text) {
 		this.text = text;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	public char getType() {
+		return type;
+	}
+
+	public void setType(char type) {
+		this.type = type;
 	}
 	
 }
