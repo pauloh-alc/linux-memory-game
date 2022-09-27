@@ -2,7 +2,9 @@ package entities;
 
 import application.Game;
 import entities.enums.State;
+import javafx.animation.KeyFrame;
 import javafx.animation.RotateTransition;
+import javafx.animation.Timeline;
 import javafx.geometry.Point3D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -114,5 +116,25 @@ public class Card {
 		          BorderStrokeStyle.SOLID,
 		          CornerRadii.EMPTY,
 		          new BorderWidths(7, 7, 7, 7))));
+	}
+	
+	public static void resetUnmatchedCards(int row0, int column0, int row1, int column1)  {
+		
+		KeyFrame keyFrame1 = new KeyFrame(Duration.seconds(2.5), e -> Game.buttons[row0][column0].setGraphic(Card.generateImage()));
+		KeyFrame keyFrame2 = new KeyFrame(Duration.seconds(2.5), e -> Game.buttons[row0][column0].setText(""));
+		
+		Timeline timeline1 = new Timeline(keyFrame1, keyFrame2);
+		timeline1.setCycleCount(1);
+		timeline1.play();
+		
+		KeyFrame keyFrame3 = new KeyFrame(Duration.seconds(2.5), e -> Game.buttons[row1][column1].setGraphic(Card.generateImage()));
+		KeyFrame keyFrame4 = new KeyFrame(Duration.seconds(2.5), e -> Game.buttons[row1][column1].setText(""));
+		
+		Timeline timeline2 = new Timeline(keyFrame3, keyFrame4);
+		timeline2.setCycleCount(1);
+		timeline2.play();
+		
+		Game.cards[row0][column0].setState(State.DOWN);
+		Game.cards[row1][column1].setState(State.DOWN);
 	}
 }
