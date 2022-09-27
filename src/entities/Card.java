@@ -1,8 +1,12 @@
 package entities;
 
+import application.Game;
 import entities.enums.State;
+import javafx.animation.RotateTransition;
+import javafx.geometry.Point3D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 public class Card {
 	
@@ -71,5 +75,20 @@ public class Card {
 		imageView.setFitHeight(80);
 		
 		return imageView;
+	}
+	
+	public static void adjustSelectedCard(int row, int column) {
+		Game.buttons[row][column].setGraphic(null); 	
+		Game.buttons[row][column].setText(Game.cards[row][column].getText());  
+		Game.cards[row][column].setState(State.UP);
+		
+	    RotateTransition rotateTransition = new RotateTransition(); 
+	    rotateTransition.setDuration(Duration.millis(1500)); 
+	    rotateTransition.setNode(Game.buttons[row][column]);       
+	    rotateTransition.setAxis(new Point3D(0,50,0));
+	    rotateTransition.setByAngle(360); 
+	    rotateTransition.setCycleCount(1); 
+	    rotateTransition.setAutoReverse(false); 
+	    rotateTransition.play();
 	}
 }
