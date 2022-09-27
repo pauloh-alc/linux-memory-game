@@ -1,11 +1,22 @@
 package application;
 
-import entities.Board;
+import entities.Card;
+import javafx.application.Application;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
-public class Game {
-
+public class Game extends Application {
+	
+	public static Button[][] buttons;
+	public static Card[][] cards;
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Board board = new Board(3, 8);
+		launch(args);
+	}
+	
+	@Override
+	public void start(Stage primaryStage) {
+		
 	}	
+	
 }
