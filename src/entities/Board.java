@@ -4,29 +4,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import entities.enums.State;
+import utils.FileResource;
+
 public class Board {
 	
 	private Card[][] cards;
-	
-	public Board() {
-		
-	}
 	
 	public Board(int rows, int columns) {
 		this.startBoard(rows, columns);
 	}
 	
+	public Card[][] getCards() {
+		return cards;
+	}
+
 	private void startBoard(int rows, int columns) {
 		
-		String path = "/tmp/teste.txt";
+		String path = "./src/teste.txt";
 		FileResource resource = new FileResource(path);
 		
 		this.cards = new Card[rows][columns];
 		List<Point> pointsList = new ArrayList<Point>();
 		String[] roundCardList = getListOfPairs(resource.getLines(), rows, columns);
-		
+
 		int pairs = (rows * columns) / 2;
 		int i = pairs, j = 0, count1 = 0, count2 = 0;
+		
+		System.out.println();
 		
 		for (int r = 0; r < rows; r++) {
 			for (int c = 0; c < columns; c++) {
@@ -35,17 +40,18 @@ public class Board {
 				int row = point.getX(); int column = point.getY();
 				
 				if (c % 2 == 0) { 
-					String slice1 = roundCardList[count1].split("-")[0]; count1++;
-					this.cards[row][column] = new Card(i, point, slice1);										
+					String slice1 = roundCardList[count1].split("\\|")[0]; count1++;
+					this.cards[row][column] = new Card(i, point, slice1, State.DOWN, 'H');										
 					i--;
 				} else { 
-					String slice2 = roundCardList[count2].split("-")[1]; count2++;
-					this.cards[row][column] = new Card(j, point, slice2);
+					String slice2 = roundCardList[count2].split("\\|")[1]; count2++;
+					this.cards[row][column] = new Card(j, point, slice2, State.DOWN, 'M');
 					j++;
 				}
 				
 				System.out.print(cards[row][column].getText() + "-");
 				System.out.print("("+cards[row][column].getPoint().getX()+","+cards[row][column].getPoint().getY()+") ");
+
 			}
 			System.out.println();
 		}
