@@ -6,7 +6,14 @@ import javafx.animation.RotateTransition;
 import javafx.geometry.Point3D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import utils.ColorResource;
 
 public class Card {
 	
@@ -90,5 +97,22 @@ public class Card {
 	    rotateTransition.setCycleCount(1); 
 	    rotateTransition.setAutoReverse(false); 
 	    rotateTransition.play();
+	}
+	
+	public static void adjustMatchedCards(int row0, int column0, int row1, int column1) {
+		Game.cards[row0][column0].setState(State.UP);  
+		Game.cards[row1][column1].setState(State.UP);
+		
+		String color = ColorResource.genarateHexadecimalColor();
+		
+		Game.buttons[row0][column0].setBorder(new Border(new BorderStroke(Color.web(color),
+		          BorderStrokeStyle.SOLID,
+		          CornerRadii.EMPTY,
+		          new BorderWidths(7, 7, 7, 7))));
+		
+		Game.buttons[row1][column1].setBorder(new Border(new BorderStroke(Color.web(color),
+		          BorderStrokeStyle.SOLID,
+		          CornerRadii.EMPTY,
+		          new BorderWidths(7, 7, 7, 7))));
 	}
 }
