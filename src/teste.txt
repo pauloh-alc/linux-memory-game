@@ -1,0 +1,66 @@
+/etc|Arquivos de configuração da sua máquina.
+FSF|Free Software Foundation.
+/tmp|Arquivos temporários (área volátil limpada durante a inicialização).
+Instalação usando o DPKG|dpkg -i <nome-do-pacote>
+$PATH|Contém todos os diretórios que o bash vai pesquisar por determinado binário/script.
+#|No terminal indica o Superusuário.
+$|No terminal indica o Usuário Comum.
+rwx|Readble, Writeable, Executable.
+Comando que me diz onde estou.|pwd ou echo $PWD.
+Shell padrão do Linux?|bash
+apt|Gerenciador de pacotes de Alto nível.
+dpkg|Gerenciador de pacotes de Baixo nível.
+/media|Ponto de montagem temporários para mídias removíveis.
+/var|arquivos variáveis que possuem um conteúdo dinâmico.
+Distribuição Linux para mobile.|Android.
+GPL|GNU General Public License.
+FLOSS|Free/libre Open Souce Software.
+Linux.|Kernel.
+/root|Home do superusuário (root)
+/proc|Armazena informações dinâmicas do S.O, como processos, informações sobre entrada e saída, modelo de processador e versão do kernel.
+/bin|Arquivos/comandos binários.
+LTS|Long Term Suport.
+Exemplos de distribuições com foco em servidores e Enterprise.|Red Hat e CentOS. 
+O caminho absoluto /usr/share/man armazena?|Documentações (manuais).
+/lib|Armazena bibliotecas essenciais do sistema e módulos do kernel.
+Calc é uma suite office de|Planilhas
+A instalação com apt é feita com|apt install <nome-do-pacote>
+Remoção das dependências/bibliotecas que não estão sendo usadas|apt autoremove
+Comando para upgrade dos pacotes do sistema.|apt upgrade
+Comando que atualiza os repositórios da máquina com base em /etc/apt/source.list|apt update
+Atualiza o kernel|apt dist-upgrade
+Shell.|Interpretador de comandos.
+/dev|Arquivos de dispositivos
+Distribuição derivada do Debian.|Ubuntu.
+Exemplo de aplicação para servidores.|Apache e Nginx.
+Executa comandos em sequência independente dos resultados de cada um|comando1 ; comando2 ; comando3
+~|Diretório home.
+654|-rw-r-xr--
+Navegador web não gráfico.|Links.
+Comando de cria arquivos|touch
+Pega as últimas 20 linhas de test.txt|$tail -20 test.txt
+Comando que muda o grupo associado a um arquivo.|chown
+Qual comando(s) fornece ajuda para um específico comando no linux|info ou man
+"$2"|Captura segundo argumento de um script.
+Comando que mostra uma lista de todos os arquivos no diretório atual, incluindo arquivos ocultos|ls -a
+Comando que mostra informações da tabela de roteamento|route
+Extrai os conteúdos do arquivo empacotado download.bz2|bunzip download.bz2
+Sistema de arquivos mais utilizado no Linux|ext4
+Caractere que permite comentários em um arquivo shell script|'#'
+/etc/hosts|É um arquivo de DNS local.
+/etc/resolv.conf|É um arquivo que contém os servidores DNS remotos.
+Interface de rede que sempre existe no linux.|lo
+Extrai arquivos de uma arquivo tar|tar -xvf
+logs do sistemas são centralizados em?|/var/log
+Quando um usuário é adicionado, onde o user ID é armazenado?|/etc/passwd
+Comando que permite visualizar a memória em uso|free ou top
+Comando usado para mudar a senha de um usuário|passwd
+mkdir|Comando que cria um diretório.
+mv|Comando que move ou renomeia arquivos/diretórios.
+cp|Comando que copia arquivos ou diretótios.
+cat|Comando que visualiza conteúdo de um arquivo.
+find|Comando que procura arquivos no linux.
+userdel|Comando que remove um usuário.
+sudo|Executa um comando com elevação de privilêgios.
+head|Comando que por padrão exibe as 10 primeira linhas de um arquivo.
+stat file.txt|Esse comando vai exibir as estatísticas do arquivo file.txt
