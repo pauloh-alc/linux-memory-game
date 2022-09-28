@@ -22,7 +22,7 @@ In each turn the player must choose two cards and turn them over. If they form a
 
 1. Clone this repository:
 ```sh
-git clone https://github.com/pauloh-alc/memory-game-linux.git
+git clone https://github.com/pauloh-alc/linux-memory-game.git
 ```
 
 2. Run the code in some IDE. You will need JavaFX, prefer JavaFX 11+. Make your settings too. Follow the link below with the step by step.
