@@ -1,11 +1,11 @@
 package utils;
 
 public class Color {
-	
+
 	private int red;
 	private int green;
 	private int blue;
-	
+
 	public Color(int red, int green, int blue) {
 		super();
 		this.red = red;
@@ -36,5 +36,5 @@ public class Color {
 	public void setBlue(int blue) {
 		this.blue = blue;
 	}
-	
+
 }

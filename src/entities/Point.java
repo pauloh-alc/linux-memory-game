@@ -1,12 +1,12 @@
 package entities;
 
 public class Point {
-	
+
 	private int x;
 	private int y;
-	
+
 	public Point() {
-		
+
 	}
 
 	public Point(int x, int y) {
@@ -29,5 +29,5 @@ public class Point {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
+
 }
