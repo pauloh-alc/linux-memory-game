@@ -21,7 +21,7 @@ public class Board {
 
 	private void startBoard(int rows, int columns) {
 
-		String path = "./src/teste.txt";
+		String path = "./src/card-texts.txt";
 		FileResource resource = new FileResource(path);
 
 		this.cards = new Card[rows][columns];
