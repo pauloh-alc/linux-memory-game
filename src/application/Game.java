@@ -25,9 +25,6 @@ import javafx.stage.Stage;
 
 public class Game extends Application {
 
-	private final static int WIDTH = 1280;
-	private final static int HEIGHT = 1024;
-
 	private final static int ROWS = 3;
 	private final static int COLUMNS = 8;
 
@@ -37,8 +34,8 @@ public class Game extends Application {
 	public static Card[][] cards;
 
 	private static Card[] selectedPair = new Card[2];
-
 	private static Integer[] arrOfChosenCardNumbers = new Integer[2];
+	
 	private static int currentCard = 0;
 
 	public static void main(String[] args) {
@@ -47,6 +44,9 @@ public class Game extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
+		
+		final int WIDTH = 1280;
+		final  int HEIGHT = 1024;
 
 		HBox hbox = addHBox();
 		GridPane grid = addGridPane();
@@ -72,7 +72,7 @@ public class Game extends Application {
 		Scene scene = new Scene(border, WIDTH, HEIGHT);
 
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("Memory-Game");
+		primaryStage.setTitle("Linux-Memory-Game");
 		primaryStage.show();
 	}
 
@@ -85,7 +85,7 @@ public class Game extends Application {
 		hbox.setAlignment(Pos.TOP_CENTER);
 		hbox.setSpacing(100);
 
-		Text textGameName = new Text("/ Memory-Game _linux essentials_");
+		Text textGameName = new Text("/ Linux-Memory-Game");
 		textGameName.setFont(
 				Font.loadFont(getClass().getClassLoader().getResourceAsStream("Fonts/VCR_OSD_MONO_1.001.ttf"), 24));
 
