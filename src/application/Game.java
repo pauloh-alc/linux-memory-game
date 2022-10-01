@@ -87,7 +87,7 @@ public class Game extends Application {
 
 		Text textGameName = new Text("/ Linux-Memory-Game");
 		textGameName.setFont(
-				Font.loadFont(getClass().getClassLoader().getResourceAsStream("Fonts/VCR_OSD_MONO_1.001.ttf"), 24));
+				Font.loadFont(getClass().getClassLoader().getResourceAsStream("fonts/VCR_OSD_MONO_1.001.ttf"), 24));
 
 		Button resetButton = new Button("Reset");
 		resetButton.setMinWidth(140);
